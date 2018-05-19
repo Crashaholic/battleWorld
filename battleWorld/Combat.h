@@ -45,13 +45,14 @@ void parseCombat(std::string sInput)
 
 	if (sInput == cmdatk)
 	{
-		enemy.setHp(enemy.getHp() - (((player.getAt() - enemy.getAr()) > 0) ? (player.getAt() - enemy.getAr()) : 1));
 		std::cout << "Enemy took " << ((player.getAt() - enemy.getAr()) >= 0 ? (player.getAt() - enemy.getAr()) : enemy.getHp()) << " damage!" << std::endl;
+		enemy.setHp(enemy.getHp() - (((player.getAt() - enemy.getAr()) > 0) ? (player.getAt() - enemy.getAr()) : 1));
 		if (enemy.getHp() <= 0)
 		{
 			std::cout << "YOU WON!" << std::endl;
 			winCondition = true;
 			combatEnded = true;
+			return;
 		}
 	}
 	else if (sInput == cmdstat)
@@ -70,15 +71,12 @@ void parseCombat(std::string sInput)
 
 	Sleep(500);
 
+	std::cout << "Player took " << ((enemy.getAt() - player.getAr()) > 0 ? (enemy.getAt() - player.getAr()) : player.getHp() % 2 + 1) << " damage!" << std::endl;
+	player.setHp((player.getHp() - (((enemy.getAt() - player.getAr()) > 0) ? (enemy.getAt() - player.getAr()) : player.getHp() % 2 + 1)));
 	if (player.getHp() <= 0)
 	{
 		std::cout << "YOU LOST!" << std::endl;
 		winCondition = false;
 		combatEnded = true;
-	}
-	else
-	{
-		player.setHp(player.getHp() - (enemy.getAt() - player.getAr()));
-		std::cout << "Player took " << (enemy.getAt() - player.getAr()) << " damage!" << std::endl;
 	}
 }

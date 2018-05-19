@@ -39,7 +39,7 @@ int main()
 	getline(cin , sInput);
 	temp = stoi(sInput);
 
-	//debug.randStats(20);
+	debug.randStats(100);
 
 	while (true) 
 	{
