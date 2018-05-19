@@ -4,6 +4,8 @@
 #include "Player.h"
 #include "Enemy.h"
 #include "EnemyDB.h"
+#include <ctime>
+#include <stdlib.h>
 
 bool winCondition = false;
 bool combatEnded = false;
@@ -20,6 +22,28 @@ void stats()
 		<< "Magic:        " << player.getMa() << std::endl
 		<< "Speed:        " << player.getSp() << std::endl
 		<< "Strength:     " << player.getSt() << std::endl;
+}
+
+int damage(int attack, int opponentArmor) {
+	int flatDamage = (attack - (opponentArmor / 2)) ? (attack - (opponentArmor / 2)) : (2);
+
+	if (flatDamage <= 2) {
+		if (flatDamage < 1) {
+			return 1;
+		}
+		else {
+			return flatDamage;
+		}
+	}
+	else {
+		srand(time(NULL));
+		if (rand() % 2 == 1) {
+			return flatDamage * (1.0 - (rand() % 1500 * 0.0001));
+		}
+		else {
+			return flatDamage * (1.0 + (rand() % 1500 * 0.0001));
+		}
+	}
 }
 
 void parseCombat(std::string sInput)
@@ -45,8 +69,9 @@ void parseCombat(std::string sInput)
 
 	if (sInput == cmdatk)
 	{
-		std::cout << "Enemy took " << ((player.getAt() - enemy.getAr()) >= 0 ? (player.getAt() - enemy.getAr()) : enemy.getHp()) << " damage!" << std::endl;
-		enemy.setHp(enemy.getHp() - (((player.getAt() - enemy.getAr()) > 0) ? (player.getAt() - enemy.getAr()) : 1));
+		int damageTemp = damage(player.getAt(), enemy.getAr());
+		std::cout << "Enemy took " << damageTemp << " damage!" << std::endl;
+		enemy.setHp(enemy.getHp() - damageTemp);
 		if (enemy.getHp() <= 0)
 		{
 			std::cout << "YOU WON!" << std::endl;
@@ -71,8 +96,9 @@ void parseCombat(std::string sInput)
 
 	Sleep(500);
 
-	std::cout << "Player took " << ((enemy.getAt() - player.getAr()) > 0 ? (enemy.getAt() - player.getAr()) : player.getHp() % 2 + 1) << " damage!" << std::endl;
-	player.setHp((player.getHp() - (((enemy.getAt() - player.getAr()) > 0) ? (enemy.getAt() - player.getAr()) : player.getHp() % 2 + 1)));
+	int damageTemp = damage(enemy.getAt(), player.getAr());
+	std::cout << "Player took " << damageTemp << " damage!" << std::endl;
+	player.setHp(player.getHp() - damageTemp);
 	if (player.getHp() <= 0)
 	{
 		std::cout << "YOU LOST!" << std::endl;

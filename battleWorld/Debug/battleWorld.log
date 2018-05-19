@@ -1,5 +1,1 @@
-﻿  main.cpp
-c:\users\user\source\repos\battleworld\battleworld\debug.h(15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-c:\users\user\source\repos\battleworld\battleworld\main.cpp(24): warning C4101: 'battleEngage': unreferenced local variable
-c:\users\user\source\repos\battleworld\battleworld\main.cpp(23): warning C4101: 'battleSuccess': unreferenced local variable
-  battleWorld.vcxproj -> C:\Users\User\source\repos\battleWorld\Debug\battleWorld.exe
+﻿
