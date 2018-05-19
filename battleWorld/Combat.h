@@ -46,27 +46,6 @@ int damage(int attack, int opponentArmor) {
 	}
 }
 
-int pHp,
-pAt,
-pAr;
-
-int eHp,
-eAt,
-eAr;
-
-
-void cloneStats()
-{
-	pHp = player.getHp();
-	pAt = player.getAt();
-	pAr = player.getAr();
-
-	eHp = enemy.getHp();
-	eAt = enemy.getAt();
-	eAr = enemy.getAr();
-}
-
-
 void parseCombat(std::string sInput)
 {
 
@@ -92,9 +71,9 @@ void parseCombat(std::string sInput)
 
 	if (sInput == cmdatk)
 	{
-		int damageTemp = damage(pAt, eAr);
+		int damageTemp = damage(player.getAt(), enemy.getAr());
 		std::cout << "Enemy took " << damageTemp << " damage!" << std::endl;
-		enemy.setHp(eHp - damageTemp);
+		enemy.setHp(enemy.getHp() - damageTemp);
 
 		if (enemy.getHp() <= 0)
 		{
@@ -121,10 +100,10 @@ void parseCombat(std::string sInput)
 	Sleep(500);
 
 
-	int damageTemp = damage(eAt, pAr);
+	int damageTemp = damage(enemy.getAt(), player.getAr());
 	std::cout << "Player took " << damageTemp << " damage!" << std::endl;
-	player.setHp(pHp - damageTemp);
-	if (pHp <= 0)
+	player.setHp(player.getHp() - damageTemp);
+	if (player.getHp() <= 0)
 	{
 		std::cout << "YOU LOST!" << std::endl;
 		winCondition = false;
