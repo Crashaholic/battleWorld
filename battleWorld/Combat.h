@@ -43,34 +43,30 @@ void parseCombat(std::string sInput)
 /*
 	while (true) 
 	{*/
-	if (enemy.getHp() <= 0)
+	if (sInput == cmdatk)
 	{
-		std::cout << "You Win!" << std::endl;
-		winCondition = true;
-		combatEnded = true;
+		enemy.setHp(enemy.getHp() - (((player.getAt() - enemy.getAr()) > 0) ? (player.getAt() - enemy.getAr()) : 1));
+		std::cout << "Enemy took " << ((player.getAt() - enemy.getAr()) >= 0 ? (player.getAt() - enemy.getAr()) : enemy.getHp()) << " damage!" << std::endl;
+		std::cout << "[DEBUG] Enemy at " << enemy.getHp() << std::endl;
+		if (enemy.getHp() <= 0)
+		{
+			std::cout << "You Win!" << std::endl;
+			winCondition = true;
+			combatEnded = true;
+		}
+	}
+	else if (sInput == cmdstat)
+	{
+		stats();
+		return;
+	}
+	else if (sInput == cmdquit)
+	{
+		exit(0);
 	}
 	else
 	{
-		if (sInput == cmdatk)
-		{
-			enemy.setHp(enemy.getHp() - (((player.getAt() - enemy.getAr()) > 0) ? (player.getAt() - enemy.getAr()) : 1));
-			std::cout << "Enemy took " << (player.getAt() - enemy.getAr()) << " damage!" << std::endl;
-			std::cout << "[DEBUG] Enemy at " << enemy.getHp() << std::endl;
-			//break;
-		}
-		else if (sInput == cmdstat)
-		{
-			stats();
-			return;
-		}
-		else if (sInput == cmdquit)
-		{
-			exit(0);
-		}
-		else
-		{
-			std::cout << "Wrong input" << std::endl;
-		}
+		std::cout << "Wrong input" << std::endl;
 	}
 	//}
 	//ENEMY'S TURN

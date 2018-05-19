@@ -20,7 +20,7 @@ void GetEnemyIndex(int enemyQueue)
 
 		enemy.setHp(100);
 		enemy.setAr(1);
-		enemy.setAt(rand() %20);
+		enemy.setAt(10);
 		enemy.setSt(1);
 
 		enemy.setIn(0);
@@ -36,7 +36,7 @@ void GetEnemyIndex(int enemyQueue)
 
 		enemy.setHp(200);
 		enemy.setAr(2);
-		enemy.setAt(1);
+		enemy.setAt(20);
 		enemy.setSt(1);
 
 		enemy.setIn(0);
