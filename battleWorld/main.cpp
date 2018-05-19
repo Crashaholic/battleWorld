@@ -8,6 +8,10 @@
 #include "Combat.h"
 
 using std::string;
+using std::cout;
+using std::endl;
+using std::getline;
+using std::cin;
 
 int main()
 {
@@ -19,26 +23,33 @@ int main()
 	bool battleSuccess;
 	bool battleEngage;
 
-	std::cout << "Recall your name..." << std::endl << ">";
-	std::getline(std::cin, sName);
+	cout << "Recall your name..." << endl << ">";
+	getline(std::cin, sName);
 
-	if (sName == "") std::cout << "I can't hear your thoughts, try again." << std::endl;
+	if (sName == "") cout << "I can't hear your thoughts, try again." << endl;
 
-	std::cout << "And so, " << sName <<  ", your adventure begins." << std::endl
-		<< "You wake up in a white void, full of enemies" << std::endl
-		<< "What will you do?" << std::endl;
-	std::cout << "\n";
-	std::cout << "\n";
+	cout << "And so, " << sName <<  ", your adventure begins." << endl
+		<< "You wake up in a white void, full of enemies" << endl
+		<< "What will you do?" << endl;
+	cout << "\n";
+	cout << "\n";
 	GetEnemyIndex(1); //1: crab 2: spider
-	debug.randStats(20);
+
+	cout << "Enter your strength:" << endl << "#: ";
+	getline(cin , sInput);
+	temp = stoi(sInput);
+
+	//debug.randStats(20);
 
 	while (true) 
 	{
 		if (player.getLv() == 0) player.setLv(1);
-		if (combatEnded == false) 
+		if (combatEnded == false)
 		{
-			std::cout << ">";
-			std::getline(std::cin , sInput);
+			cout << "Enemy  | " << enemy.getHp() << "HP | " << enemy.getMa() << "MA | "  << enemy.getAt() << "AT | " << endl;
+			cout << "Player | " << player.getHp() << "HP | "  << player.getMa() << "MA | " << player.getAt()<< "AT | " << endl;
+			cout << ">";
+			getline(cin , sInput);
 			parseCombat(sInput);
 		}
 		else

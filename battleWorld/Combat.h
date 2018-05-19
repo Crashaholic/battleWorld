@@ -39,18 +39,17 @@ void parseCombat(std::string sInput)
 	std::string cmdquit = "qqq";
 	std::string cmdstat = "stats";
 
-	// PLAYER'S TURN
-/*
-	while (true) 
-	{*/
+	/*===================\
+	|	PLAYER'S TURN    |
+	\===================*/
+
 	if (sInput == cmdatk)
 	{
 		enemy.setHp(enemy.getHp() - (((player.getAt() - enemy.getAr()) > 0) ? (player.getAt() - enemy.getAr()) : 1));
 		std::cout << "Enemy took " << ((player.getAt() - enemy.getAr()) >= 0 ? (player.getAt() - enemy.getAr()) : enemy.getHp()) << " damage!" << std::endl;
-		std::cout << "[DEBUG] Enemy at " << enemy.getHp() << std::endl;
 		if (enemy.getHp() <= 0)
 		{
-			std::cout << "You Win!" << std::endl;
+			std::cout << "YOU WON!" << std::endl;
 			winCondition = true;
 			combatEnded = true;
 		}
@@ -61,21 +60,19 @@ void parseCombat(std::string sInput)
 		return;
 	}
 	else if (sInput == cmdquit)
-	{
 		exit(0);
-	}
 	else
-	{
 		std::cout << "Wrong input" << std::endl;
-	}
-	//}
-	//ENEMY'S TURN
+
+	/*===================\
+	|	 ENEMY'S TURN    |
+	\===================*/
 
 	Sleep(500);
 
 	if (player.getHp() <= 0)
 	{
-		std::cout << "You suck at the game" << std::endl;
+		std::cout << "YOU LOST!" << std::endl;
 		winCondition = false;
 		combatEnded = true;
 	}

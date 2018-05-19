@@ -38,5 +38,8 @@
     <ClInclude Include="Combat.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="MovesDB.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
