@@ -41,5 +41,8 @@
     <ClInclude Include="MovesDB.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Generic.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

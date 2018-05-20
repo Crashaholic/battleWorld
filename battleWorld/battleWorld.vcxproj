@@ -123,6 +123,7 @@
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="EnemyDB.h" />
     <ClInclude Include="Entity.h" />
+    <ClInclude Include="Generic.h" />
     <ClInclude Include="MovesDB.h" />
     <ClInclude Include="Player.h" />
   </ItemGroup>

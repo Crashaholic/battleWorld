@@ -1,11 +1,12 @@
 #pragma once
 #include <iostream>
 #include <windows.h>
+#include <ctime>
+#include <stdlib.h>
 #include "Player.h"
 #include "Enemy.h"
 #include "EnemyDB.h"
-#include <ctime>
-#include <stdlib.h>
+#include "Generic.h"
 
 bool winCondition = false;
 bool combatEnded = false;
@@ -13,6 +14,7 @@ bool combatEnded = false;
 void stats()
 {
 	std::cout
+		<< "Strength:     " << player.getSt() << std::endl
 		<< "Accuracy:     " << player.getAc() << std::endl
 		<< "Armour:       " << player.getAr() << std::endl
 		<< "Attack:       " << player.getAt() << std::endl
@@ -20,8 +22,7 @@ void stats()
 		<< "Health:       " << player.getHp() << std::endl
 		<< "Intelligence: " << player.getIn() << std::endl
 		<< "Magic:        " << player.getMa() << std::endl
-		<< "Speed:        " << player.getSp() << std::endl
-		<< "Strength:     " << player.getSt() << std::endl;
+		<< "Speed:        " << player.getSp() << std::endl;
 }
 
 int damage(int attack, int opponentArmor) {

@@ -35,7 +35,7 @@ void GetEnemyIndex(int enemyQueue)
 		enemy.setLv(1);
 
 		enemy.setHp(200);
-		enemy.setAr(2);
+		enemy.setAr(20);
 		enemy.setAt(20);
 		enemy.setSt(1);
 
@@ -46,6 +46,22 @@ void GetEnemyIndex(int enemyQueue)
 		enemy.setAc(1);
 		enemy.setSp(1);
 		std::cout << "Spider appears!" << std::endl;
+		break;
+	case 3:
+		enemy.setLv(1);
+
+		enemy.setHp(300);
+		enemy.setAr(30);
+		enemy.setAt(30);
+		enemy.setSt(1);
+
+		enemy.setIn(0);
+		enemy.setMa(0);
+
+		enemy.setDe(1);
+		enemy.setAc(1);
+		enemy.setSp(1);
+		std::cout << "Zombie appears!" << std::endl;
 		break;
 	default:
 		break;

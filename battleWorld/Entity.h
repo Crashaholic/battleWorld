@@ -24,10 +24,9 @@ public:
 
 	int getLv();
 
-	int getAr();
-
 	int getSt();
 	int getHp();
+	int getAr();
 	int getAt();
 
 	int getIn();
@@ -35,8 +34,7 @@ public:
 
 	int getDe();
 	int getSp();
-
-	int getLu();
+	int getLk();
 	int getAc();
 
 	void setLv(int newLv);
@@ -53,7 +51,7 @@ public:
 	void setDe(int newDe);
 	void setSp(int newSp);
 
-	void setLu(int newLu);
+	void setLk(int newLk);
 	void setAc(int newAc);
 
 } ;
@@ -116,7 +114,7 @@ int Entity::getSp()
 }
 
 
-int Entity::getLu()
+int Entity::getLk()
 {
 	return luck;
 }
@@ -185,9 +183,9 @@ void Entity::setSp(int newSp)
 }
 
 
-void Entity::setLu(int newLu)
+void Entity::setLk(int newLk)
 {
-	luck = newLu;
+	luck = newLk;
 }
 
 void Entity::setAc(int newAc)
