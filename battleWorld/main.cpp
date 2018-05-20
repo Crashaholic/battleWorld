@@ -28,11 +28,9 @@ int main()
 	text( "An unfortunate event happened on you," , TEXT_SPEED);
 	text(sName, TEXT_SPEED); newLine();
 	GetEnemyIndex(6); //1: crab 2: spider
-
+	Sleep(5000);
 	clear();
-
 	debug.randStats(100);
-
 	while (true) 
 	{
 		if (player.getLv() == 0) player.setLv(1);
@@ -49,7 +47,8 @@ int main()
 			newLine();
 
 			//cout << "Player | " << player.getHp() << "HP | "  << player.getMa() << "MA | " << player.getAt()<< "AT | " << endl;
-			text("Player  | " , TEXT_SPEED - 10);
+			text(sName , TEXT_SPEED - 10);
+			text("| ", TEXT_SPEED - 10);
 			text(std::to_string(player.getHp()), TEXT_SPEED - 10);
 			text("HP | ", TEXT_SPEED - 10);
 			text(std::to_string(player.getMa()), TEXT_SPEED - 10);

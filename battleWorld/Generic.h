@@ -21,11 +21,12 @@ void newLine()
 	cout << endl;
 }
 
+void toTop()
+{
+
+}
+
 void clear()
 {
-	cout << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl
-		<< endl << endl << endl << endl << endl << endl << endl << endl << endl << endl
-		<< endl << endl << endl << endl << endl << endl << endl << endl << endl << endl
-		<< endl << endl << endl << endl << endl << endl << endl << endl << endl << endl
-		<< endl << endl << endl << endl << endl << endl << endl << endl << endl << endl;
+	cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
 }
