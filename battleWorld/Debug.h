@@ -1,5 +1,6 @@
 #pragma once
 #include "Player.h"
+#include "Combat.h"
 #include <ctime>
 #include <stdlib.h>
 
@@ -25,30 +26,8 @@ void Debug::randStats(int range)
 	player.setSt(0);
 	player.setLk(0);
 
-	//Distribute 100 stat points across STR, DEX, INT, LUK
-	while (player.getSt() < 4 || player.getDe() < 4 || player.getIn() < 4 || player.getLk() < 4) {
-		player.setSt(0);
-		player.setDe(0);
-		player.setIn(0);
-		player.setLk(0);
-		for (int statPoints = 24; statPoints > 0; statPoints--)
-		{
-			switch (rand() % 4) {
-			case 0:
-				player.setSt(player.getSt() + 1);
-				break;
-			case 1:
-				player.setDe(player.getDe() + 1);
-				break;
-			case 2:
-				player.setIn(player.getIn() + 1);
-				break;
-			case 3:
-				player.setLk(player.getLk() + 1);
-				break;
-			}
-		}
-	}
+	//Distribute 24 stat points across STR, DEX, INT, LUK
+	reroll();
 
 	//Determine derived stats
 	player.setHp(20 + 2 * player.getSt());

@@ -26,6 +26,65 @@ void stats()
 		<< "Speed:        " << player.getSp() << std::endl;
 }
 
+void reroll() {
+	player.setSt(4);
+	player.setDe(4);
+	player.setIn(4);
+	player.setLk(4);
+	if (rand() % 3 == 0) {
+		switch (rand() % 4) {
+		case 0:
+			player.setSt(player.getSt() + 4);
+			break;
+		case 1:
+			player.setDe(player.getDe() + 4);
+			break;
+		case 2:
+			player.setIn(player.getIn() + 4);
+			break;
+		case 3:
+			player.setLk(player.getLk() + 4);
+			break;
+		}
+
+		for (int statpoints = 4; statpoints > 0; statpoints--) {
+			switch (rand() % 4) {
+			case 0:
+				player.setSt(player.getSt() + 1);
+				break;
+			case 1:
+				player.setDe(player.getDe() + 1);
+				break;
+			case 2:
+				player.setIn(player.getIn() + 1);
+				break;
+			case 3:
+				player.setLk(player.getLk() + 1);
+				break;
+			}
+		}
+	}
+	else {
+		for (int statPoints = 8; statPoints > 0; statPoints--)
+		{
+			switch (rand() % 4) {
+			case 0:
+				player.setSt(player.getSt() + 1);
+				break;
+			case 1:
+				player.setDe(player.getDe() + 1);
+				break;
+			case 2:
+				player.setIn(player.getIn() + 1);
+				break;
+			case 3:
+				player.setLk(player.getLk() + 1);
+				break;
+			}
+		}
+	}
+}
+
 int damage(int attack, int opponentArmor) {
 	int flatDamage = (attack - (opponentArmor / 2)) ? (attack - (opponentArmor / 2)) : (2);
 
@@ -64,6 +123,7 @@ void parseCombat(std::string sInput)
 	std::string cmdassign = "assign";
 	std::string cmdquit = "qqq";
 	std::string cmdstat = "stats";
+	std::string cmdreroll = "reroll";
 
 
 
@@ -89,6 +149,12 @@ void parseCombat(std::string sInput)
 	}
 	else if (sInput == cmdstat)
 	{
+		stats();
+		return;
+	}
+	else if (sInput == cmdreroll)
+	{
+		reroll();
 		stats();
 		return;
 	}
