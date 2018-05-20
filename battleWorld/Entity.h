@@ -4,6 +4,7 @@
 class Entity
 {
 	int level;
+	unsigned int xp;
 
 	int armour;
 
@@ -23,6 +24,7 @@ class Entity
 public:
 
 	int getLv();
+	unsigned int getXp();
 
 	int getSt();
 	int getHp();
@@ -38,6 +40,7 @@ public:
 	int getAc();
 
 	void setLv(int newLv);
+	void setXp(int newXp);
 
 	void setAr(int newAr);
 
@@ -65,6 +68,11 @@ public:
 int Entity::getLv()
 {
 	return level;
+}
+
+unsigned int Entity::getXp()
+{
+	return xp;
 }
 
 
@@ -132,6 +140,11 @@ int Entity::getAc()
 void Entity::setLv(int newLv)
 {
 	level = newLv;
+}
+
+void Entity::setXp(int newXp)
+{
+	xp = newXp;
 }
 
 

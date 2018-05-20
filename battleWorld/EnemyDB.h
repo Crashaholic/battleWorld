@@ -8,6 +8,7 @@
 	3:zombie
 	4:skelebutt
 	5:orc
+	6:puffball
 */
 
 
@@ -63,6 +64,21 @@ void GetEnemyIndex(int enemyQueue)
 		enemy.setSp(1);
 		std::cout << "Zombie appears!" << std::endl;
 		break;
+	case 6: //puffball
+		enemy.setLv(1);
+		enemy.setXp(3);
+
+		enemy.setHp(12);
+		enemy.setAr(0);
+		enemy.setAt(3);
+		enemy.setSt(1);
+
+		enemy.setDe(0);
+		enemy.setSp(1);
+		
+		enemy.setLk(0);
+		enemy.setAc(5);
+		std::cout << "Puffball appears!" << std::endl;
 	default:
 		break;
 	}

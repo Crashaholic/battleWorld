@@ -15,12 +15,13 @@ void stats()
 {
 	std::cout
 		<< "Strength:     " << player.getSt() << std::endl
+		<< "Dexterity:    " << player.getDe() << std::endl
+		<< "Intelligence: " << player.getIn() << std::endl
+		<< "Luck:         " << player.getLk() << std::endl
 		<< "Accuracy:     " << player.getAc() << std::endl
 		<< "Armour:       " << player.getAr() << std::endl
 		<< "Attack:       " << player.getAt() << std::endl
-		<< "Dexterity:    " << player.getDe() << std::endl
 		<< "Health:       " << player.getHp() << std::endl
-		<< "Intelligence: " << player.getIn() << std::endl
 		<< "Magic:        " << player.getMa() << std::endl
 		<< "Speed:        " << player.getSp() << std::endl;
 }
@@ -39,10 +40,10 @@ int damage(int attack, int opponentArmor) {
 	else {
 		srand(time(NULL));
 		if (rand() % 2 == 1) {
-			return flatDamage * (1.0 - (rand() % 1500 * 0.0001));
+			return (int) (flatDamage * (1.0 - (rand() % 1500 * 0.0001)));
 		}
 		else {
-			return flatDamage * (1.0 + (rand() % 1500 * 0.0001));
+			return (int) (flatDamage * (1.0 + (rand() % 1500 * 0.0001)));
 		}
 	}
 }
@@ -79,6 +80,8 @@ void parseCombat(std::string sInput)
 		if (enemy.getHp() <= 0)
 		{
 			std::cout << "YOU WON!" << std::endl;
+			player.setXp(player.getXp() + enemy.getXp());
+			std::cout << "Earned " << enemy.getXp() << "XP" << std::endl;
 			winCondition = true;
 			combatEnded = true;
 			return;

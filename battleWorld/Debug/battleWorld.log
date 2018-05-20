@@ -1,1 +1,4 @@
-﻿
+﻿  main.cpp
+d:\k0019\documents\battleworld\battleworld\combat.h(41): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+d:\k0019\documents\battleworld\battleworld\debug.h(15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  battleWorld.vcxproj -> D:\K0019\Documents\battleWorld\Debug\battleWorld.exe

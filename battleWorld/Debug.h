@@ -13,6 +13,7 @@ public:
 void Debug::randStats(int range)
 {
 	srand(time(NULL));
+	player.setXp(0);
 	player.setAc(0);
 	player.setAr(4);
 	player.setAt(0);
@@ -25,21 +26,27 @@ void Debug::randStats(int range)
 	player.setLk(0);
 
 	//Distribute 100 stat points across STR, DEX, INT, LUK
-	for (int statPoints = 100; statPoints > 0; statPoints--) 
-	{
-		switch (rand() % 4) {
-		case 0:
-			player.setSt(player.getSt() + 1);
-			break;
-		case 1:
-			player.setDe(player.getDe() + 1);
-			break;
-		case 2:
-			player.setIn(player.getIn() + 1);
-			break;
-		case 3:
-			player.setLk(player.getLk() + 1);
-			break;
+	while (player.getSt() < 4 || player.getDe() < 4 || player.getIn() < 4 || player.getLk() < 4) {
+		player.setSt(0);
+		player.setDe(0);
+		player.setIn(0);
+		player.setLk(0);
+		for (int statPoints = 24; statPoints > 0; statPoints--)
+		{
+			switch (rand() % 4) {
+			case 0:
+				player.setSt(player.getSt() + 1);
+				break;
+			case 1:
+				player.setDe(player.getDe() + 1);
+				break;
+			case 2:
+				player.setIn(player.getIn() + 1);
+				break;
+			case 3:
+				player.setLk(player.getLk() + 1);
+				break;
+			}
 		}
 	}
 
@@ -48,7 +55,7 @@ void Debug::randStats(int range)
 	player.setAt(player.getSt() + 1);
 	player.setSp(player.getDe() + 1);
 	player.setMa(player.getIn() + 1);
-	player.setAc(player.getLk() + 1);
+	player.setAc(player.getDe() + (int) (player.getLk() * 0.333333) + 1);
 
 	/*
 	player.setAc(rand() % range);

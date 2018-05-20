@@ -9,7 +9,7 @@ using std::endl;
 
 void text(string TEXT, int speed)
 {
-	for (int i = 0; i <= TEXT.length(); i++)
+	for (unsigned int i = 0; i <= TEXT.length(); i++)
 	{
 		cout << TEXT[i];
 		Sleep(speed);
