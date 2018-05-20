@@ -20,3 +20,12 @@ void newLine()
 {
 	cout << endl;
 }
+
+void clear()
+{
+	cout << endl << endl << endl << endl << endl << endl << endl << endl << endl << endl
+		<< endl << endl << endl << endl << endl << endl << endl << endl << endl << endl
+		<< endl << endl << endl << endl << endl << endl << endl << endl << endl << endl
+		<< endl << endl << endl << endl << endl << endl << endl << endl << endl << endl
+		<< endl << endl << endl << endl << endl << endl << endl << endl << endl << endl;
+}

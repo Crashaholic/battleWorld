@@ -1,7 +1,0 @@
-﻿  main.cpp
-c:\users\user\source\repos\battleworld\battleworld\debug.h(15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-c:\users\user\source\repos\battleworld\battleworld\combat.h(40): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-c:\users\user\source\repos\battleworld\battleworld\combat.h(42): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
-c:\users\user\source\repos\battleworld\battleworld\combat.h(45): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
-c:\users\user\source\repos\battleworld\battleworld\main.cpp(24): warning C4101: 'temp': unreferenced local variable
-  battleWorld.vcxproj -> C:\Users\User\source\repos\battleWorld\x64\Debug\battleWorld.exe

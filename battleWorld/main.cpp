@@ -13,6 +13,10 @@ int main()
 	string sName;
 	string sInput;
 
+	int temp;
+
+	clear();
+
 	text("Recall your name...", TEXT_SPEED); newLine();
 	cout << ">";
 	getline(std::cin, sName);
@@ -24,6 +28,8 @@ int main()
 	text( "An unfortunate event happened on you," , TEXT_SPEED);
 	text(sName, TEXT_SPEED); newLine();
 	GetEnemyIndex(6); //1: crab 2: spider
+
+	clear();
 
 	debug.randStats(100);
 
