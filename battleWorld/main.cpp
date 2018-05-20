@@ -1,12 +1,4 @@
-﻿#include <iostream>
-#include <string>
-#include <windows.h>
-#include "Generic.h"
-#include "Player.h"
-#include "Enemy.h"
-#include "EnemyDB.h"
-#include "Debug.h"
-#include "Combat.h"
+﻿#include "main.h"
 
 #define TEXT_SPEED 20
 
@@ -31,9 +23,8 @@ int main()
 	{
 		text("I can't hear your thoughts, try again.", TEXT_SPEED); newLine();
 	}
-	text( "An unfortunate event happened on you." , TEXT_SPEED);
-	cout << "\n";
-	cout << "\n";
+	text( "An unfortunate event happened on you," , TEXT_SPEED);
+	text(sName, TEXT_SPEED); newLine();
 	GetEnemyIndex(1); //1: crab 2: spider
 
 	debug.randStats(100);
