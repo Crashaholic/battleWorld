@@ -7,7 +7,9 @@ using std::cout;
 using std::endl;
 using std::getline;
 using std::cin;
-
+/**
+Main.cpp.
+*/
 int main()
 {
 	string sName;
@@ -27,8 +29,8 @@ int main()
 	}
 	text( "An unfortunate event happened on you," , TEXT_SPEED);
 	text(sName, TEXT_SPEED); newLine();
-	GetEnemyIndex(6); //1: crab 2: spider
-	Sleep(5000);
+	GetEnemyIndex(1); //1: crab 2: spider
+	Sleep(2000);
 	clear();
 	debug.randStats(100);
 	while (true) 

@@ -1,6 +1,6 @@
 #pragma once
 
-
+//TODO: MAKE EFFECTIVE STATS
 class Entity
 {
 	int level;

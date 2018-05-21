@@ -6,26 +6,35 @@
 #include "Player.h"
 #include "Enemy.h"
 #include "EnemyDB.h"
+#include "MovesDB.h"
 #include "Generic.h"
 
 bool winCondition = false;
 bool combatEnded = false;
 
+/**
+Outputs current player stats. stats belong to Player.h
+*/
 void stats()
 {
 	std::cout
 		<< "Strength:     " << player.getSt() << std::endl
 		<< "Dexterity:    " << player.getDe() << std::endl
 		<< "Intelligence: " << player.getIn() << std::endl
+		<< std::endl
+		<< "Health:       " << player.getHp() << std::endl
+		<< "Magic:        " << player.getMa() << std::endl
+		<< std::endl
 		<< "Luck:         " << player.getLk() << std::endl
 		<< "Accuracy:     " << player.getAc() << std::endl
 		<< "Armour:       " << player.getAr() << std::endl
 		<< "Attack:       " << player.getAt() << std::endl
-		<< "Health:       " << player.getHp() << std::endl
-		<< "Magic:        " << player.getMa() << std::endl
 		<< "Speed:        " << player.getSp() << std::endl;
 }
 
+/**
+Rerolls stats.
+*/
 void reroll() {
 	player.setSt(4);
 	player.setDe(4);
@@ -85,28 +94,25 @@ void reroll() {
 	}
 }
 
-int damage(int attack, int opponentArmor) {
-	int flatDamage = (attack - (opponentArmor / 2)) ? (attack - (opponentArmor / 2)) : (2);
-
-	if (flatDamage <= 2) {
-		if (flatDamage < 1) {
-			return 1;
-		}
-		else {
-			return flatDamage;
-		}
-	}
-	else {
-		srand(time(NULL));
-		if (rand() % 2 == 1) {
-			return (int) (flatDamage * (1.0 - (rand() % 1500 * 0.0001)));
-		}
-		else {
-			return (int) (flatDamage * (1.0 + (rand() % 1500 * 0.0001)));
-		}
+/**
+Checks win condition.
+*/
+void getWinCondition()
+{
+	if (enemy.getHp() <= 0)
+	{
+		std::cout << "YOU WON!" << std::endl;
+		player.setXp(player.getXp() + enemy.getXp());
+		std::cout << "Earned " << enemy.getXp() << "XP" << std::endl;
+		winCondition = true;
+		combatEnded = true;
+		return;
 	}
 }
 
+/**
+For combat purposes.
+*/
 void parseCombat(std::string sInput)
 {
 
@@ -133,19 +139,13 @@ void parseCombat(std::string sInput)
 
 	if (sInput == cmdatk)
 	{
-		int damageTemp = damage(player.getAt(), enemy.getAr());
-		std::cout << "Enemy took " << damageTemp << " damage!" << std::endl;
-		enemy.setHp(enemy.getHp() - damageTemp);
-
-		if (enemy.getHp() <= 0)
-		{
-			std::cout << "YOU WON!" << std::endl;
-			player.setXp(player.getXp() + enemy.getXp());
-			std::cout << "Earned " << enemy.getXp() << "XP" << std::endl;
-			winCondition = true;
-			combatEnded = true;
-			return;
-		}
+		getMoveIndex(1);
+		getWinCondition();
+	}
+	else if (sInput == cmdmove1)
+	{
+		getMoveIndex(2);
+		getWinCondition();
 	}
 	else if (sInput == cmdstat)
 	{
