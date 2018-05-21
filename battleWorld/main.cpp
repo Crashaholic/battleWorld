@@ -15,8 +15,6 @@ int main()
 	string sName;
 	string sInput;
 
-	int temp;
-
 	clear();
 
 	text("Recall your name...", TEXT_SPEED); newLine();
@@ -29,7 +27,7 @@ int main()
 	}
 	text( "An unfortunate event happened on you," , TEXT_SPEED);
 	text(sName, TEXT_SPEED); newLine();
-	GetEnemyIndex(1); //1: crab 2: spider
+	GetEnemyIndex(2); //1: crab 2: spider
 	Sleep(2000);
 	clear();
 	debug.randStats(100);
@@ -41,22 +39,26 @@ int main()
 			//cout << "Enemy  | " << enemy.getHp() << "HP | " << enemy.getMa() << "MA | "  << enemy.getAt() << "AT | " << endl;
 			text("Enemy  | " , TEXT_SPEED - 10);
 			text(std::to_string(enemy.getHp()), TEXT_SPEED - 10);
-			text("HP | ", TEXT_SPEED - 10);
+			text(" HP | ", TEXT_SPEED - 10);
 			text(std::to_string(enemy.getMa()), TEXT_SPEED - 10);
-			text("MA | ", TEXT_SPEED - 10);
+			text("/", TEXT_SPEED - 10);
+			text(std::to_string(enemy.getMaxMa()), TEXT_SPEED - 10);
+			text(" MA | ", TEXT_SPEED - 10);
 			text(std::to_string(enemy.getAt()), TEXT_SPEED - 10);
-			text("AT | ", TEXT_SPEED - 10);
+			text(" AT | ", TEXT_SPEED - 10);
 			newLine();
 
 			//cout << "Player | " << player.getHp() << "HP | "  << player.getMa() << "MA | " << player.getAt()<< "AT | " << endl;
 			text(sName , TEXT_SPEED - 10);
-			text("| ", TEXT_SPEED - 10);
+			text(" | ", TEXT_SPEED - 10);
 			text(std::to_string(player.getHp()), TEXT_SPEED - 10);
-			text("HP | ", TEXT_SPEED - 10);
+			text(" HP | ", TEXT_SPEED - 10);
 			text(std::to_string(player.getMa()), TEXT_SPEED - 10);
-			text("MA | ", TEXT_SPEED - 10);
+			text("/", TEXT_SPEED - 10);
+			text(std::to_string(player.getMaxMa()), TEXT_SPEED - 10);
+			text(" MA | ", TEXT_SPEED - 10);
 			text(std::to_string(player.getAt()), TEXT_SPEED - 10);
-			text("AT | ", TEXT_SPEED - 10);
+			text(" AT | ", TEXT_SPEED - 10);
 			newLine();
 			cout << ">";
 

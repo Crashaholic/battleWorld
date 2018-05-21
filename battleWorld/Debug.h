@@ -21,7 +21,8 @@ void Debug::randStats(int range)
 	player.setDe(0);
 	player.setHp(0);
 	player.setIn(0);
-	player.setMa(0);
+	player.forceSetMa(0);
+	player.setMaxMa(0);
 	player.setSp(0);
 	player.setSt(0);
 	player.setLk(0);
@@ -33,7 +34,8 @@ void Debug::randStats(int range)
 	player.setHp(20 + 2 * player.getSt());
 	player.setAt(player.getSt() + 1);
 	player.setSp(player.getDe() + 1);
-	player.setMa(player.getIn() + 1);
+	player.setMaxMa(player.getIn() + 1);
+	player.forceSetMa(player.getMaxMa());
 	player.setAc(player.getDe() + (int) (player.getLk() * 0.333333) + 1);
 
 	/*

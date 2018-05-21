@@ -12,7 +12,7 @@ Outputs one char by one from the TEXT based on speed.
 */
 void text(string TEXT, int speed)
 {
-	for (unsigned int i = 0; i <= TEXT.length(); i++)
+	for (unsigned int i = 0; i < TEXT.length(); i++)
 	{
 		cout << TEXT[i];
 		Sleep(speed);

@@ -14,6 +14,7 @@ class Entity
 
 	int intelligence;
 	int magic;
+	int maxMagic;
 
 	int dexterity;
 	int speed;
@@ -33,6 +34,7 @@ public:
 
 	int getIn();
 	int getMa();
+	int getMaxMa();
 
 	int getDe();
 	int getSp();
@@ -50,6 +52,8 @@ public:
 
 	void setIn(int newIn);
 	void setMa(int newMa);
+	void forceSetMa(int newMa);
+	void setMaxMa(int newMaxMa);
 
 	void setDe(int newDe);
 	void setSp(int newSp);
@@ -108,6 +112,10 @@ int Entity::getMa()
 	return magic;
 }
 
+int Entity::getMaxMa()
+{
+	return maxMagic;
+}
 
 
 
@@ -180,7 +188,21 @@ void Entity::setIn(int newIn)
 
 void Entity::setMa(int newMa)
 {
+	if (newMa < maxMagic) {
+		magic = newMa;
+	}
+	else {
+		magic = maxMagic;
+	}
+}
+
+void Entity::forceSetMa(int newMa) {
 	magic = newMa;
+}
+
+void Entity::setMaxMa(int newMaxMa)
+{
+	maxMagic = newMaxMa;
 }
 
 

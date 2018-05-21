@@ -24,6 +24,7 @@ void stats()
 		<< std::endl
 		<< "Health:       " << player.getHp() << std::endl
 		<< "Magic:        " << player.getMa() << std::endl
+		<< "Max Magic:    " << player.getMaxMa() << std::endl
 		<< std::endl
 		<< "Luck:         " << player.getLk() << std::endl
 		<< "Accuracy:     " << player.getAc() << std::endl
@@ -33,7 +34,9 @@ void stats()
 }
 
 /**
-Rerolls stats.
+
+Returns void.
+Rerolls STR, DEX, INT, LUK. Does not recalculate derived stats.
 */
 void reroll() {
 	player.setSt(4);
