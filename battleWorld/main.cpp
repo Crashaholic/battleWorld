@@ -25,9 +25,9 @@ int main()
 	{
 		text("I can't hear your thoughts, try again.", TEXT_SPEED); newLine();
 	}
-	text( "An unfortunate event happened on you," , TEXT_SPEED);
+	text( "An unfortunate event happened on you, " , TEXT_SPEED);
 	text(sName, TEXT_SPEED); newLine();
-	GetEnemyIndex(2); //1: crab 2: spider
+	GetEnemyIndex(6); //1: crab 2: spider
 	Sleep(2000);
 	clear();
 	debug.randStats(100);

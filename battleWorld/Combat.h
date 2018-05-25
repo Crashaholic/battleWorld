@@ -107,6 +107,7 @@ void getWinCondition()
 		std::cout << "YOU WON!" << std::endl;
 		player.setXp(player.getXp() + enemy.getXp());
 		std::cout << "Earned " << enemy.getXp() << "XP" << std::endl;
+		player.checklvl();
 		winCondition = true;
 		combatEnded = true;
 		return;

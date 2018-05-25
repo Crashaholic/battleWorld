@@ -66,7 +66,7 @@ void GetEnemyIndex(int enemyQueue)
 		break;
 	case 6: //puffball
 		enemy.setLv(1);
-		enemy.setXp(3);
+		enemy.setXp(5);
 
 		enemy.setHp(12);
 		enemy.setAr(0);
