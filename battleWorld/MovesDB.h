@@ -46,12 +46,18 @@ int damage(int attack, int opponentArmor) {
 	}
 }
 
+/**
+
+Checks for the player MP sufficiency
+*/
 bool mpChecker(int req)
 {
 	if (player.getMa() >= req) return true;
 	else return false;
 }
+
 /**
+
 Get a move by index.
 */
 void getMoveIndex(int index)

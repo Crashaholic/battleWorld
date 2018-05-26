@@ -97,10 +97,27 @@ void reroll() {
 	}
 }
 
+/*
+GLOBAL VARIABLES FOR MOVES, TOUCH IF NECESSARY
+*/
+
+int qMove = 0, wMove = 0, eMove = 0, rMove = 0, tMove = 0;
+
+/**
+Assigns a move index to a key(from q,w,e,r,t)
+*/
+void assignMove(char keyAssign, int moveIndex) 
+{
+	if (keyAssign == 'q')
+	{
+		qMove = moveIndex;
+	}
+}
+
 /**
 Checks win condition.
 */
-void getWinCondition()
+bool getWinCondition()
 {
 	if (enemy.getHp() <= 0)
 	{
@@ -110,8 +127,10 @@ void getWinCondition()
 		player.checklvl();
 		winCondition = true;
 		combatEnded = true;
-		return;
+		return 1;
 	}
+	else
+		return 0;
 }
 
 /**
@@ -135,7 +154,18 @@ void parseCombat(std::string sInput)
 	std::string cmdstat = "stats";
 	std::string cmdreroll = "reroll";
 
+	char keyChange;
+	int newMoveIndex;
 
+	//AVOIDS ASSIGNING MOTHING TO MOVES
+	if (qMove == 0 || wMove == 0 || eMove == 0 || rMove == 0|| tMove == 0)
+	{
+		qMove = 2;
+		wMove = 2;
+		eMove = 2;
+		rMove = 2;
+		tMove = 2;
+	}
 
 	/*===================\
 	|	PLAYER'S TURN    |
@@ -146,10 +176,50 @@ void parseCombat(std::string sInput)
 		getMoveIndex(1);
 		getWinCondition();
 	}
-	else if (sInput == cmdmove1)
+	else if (sInput == cmditem1)
 	{
-		getMoveIndex(2);
+		//item stuff happens here
+		return; // temporary
+	}
+	else if (sInput == cmditem2)
+	{
+		//item stuff happens here
+		return; // temporary
+	}
+	else if (sInput == cmdmove1) // MOVE Q
+	{
+		getMoveIndex(qMove);
 		getWinCondition();
+	}
+	else if (sInput == cmdmove2) // MOVE W
+	{
+		getMoveIndex(wMove);
+		getWinCondition();
+	}
+	else if (sInput == cmdmove3) // MOVE E
+	{
+		getMoveIndex(eMove);
+		getWinCondition();
+	}
+	else if (sInput == cmdmove4) // MOVE R
+	{
+		getMoveIndex(rMove);
+		getWinCondition();
+	}
+	else if (sInput == cmdmove5) // MOVE T
+	{
+		getMoveIndex(tMove);
+		getWinCondition();
+	}
+	else if (sInput == cmdassign)
+	{
+		text("Enter a key from q ,w, e, r or t: ", 10);
+		std::cin >> keyChange;
+		text("Enter move index id: ", 10);
+		std::cin >> newMoveIndex;
+		assignMove(keyChange, newMoveIndex);
+		text("Changes applied!", 10);
+		newLine();
 	}
 	else if (sInput == cmdstat)
 	{
