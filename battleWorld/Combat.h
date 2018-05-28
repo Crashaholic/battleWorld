@@ -204,7 +204,7 @@ void parseCombat(std::string sInput)
 	if (sInput == cmdatk)
 	{
 		getMoveIndex(1);
-		getWinCondition();
+		if (getWinCondition()) return;
 	}
 	else if (sInput == cmditem1)
 	{
@@ -224,22 +224,22 @@ void parseCombat(std::string sInput)
 	else if (sInput == cmdmove2) // MOVE W
 	{
 		getMoveIndex(wMove);
-		getWinCondition();
+		if (getWinCondition()) return;
 	}
 	else if (sInput == cmdmove3) // MOVE E
 	{
 		getMoveIndex(eMove);
-		getWinCondition();
+		if (getWinCondition()) return;
 	}
 	else if (sInput == cmdmove4) // MOVE R
 	{
 		getMoveIndex(rMove);
-		getWinCondition();
+		if (getWinCondition()) return;
 	}
 	else if (sInput == cmdmove5) // MOVE T
 	{
 		getMoveIndex(tMove);
-		getWinCondition();
+		if (getWinCondition()) return;
 	}
 	else if (sInput == cmdassign)
 	{
