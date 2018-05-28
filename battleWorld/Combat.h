@@ -101,16 +101,45 @@ void reroll() {
 GLOBAL VARIABLES FOR MOVES, TOUCH IF NECESSARY
 */
 
-int qMove = 0, wMove = 0, eMove = 0, rMove = 0, tMove = 0;
+int qMove = 0; /*Move index for [Q] */
+int wMove = 0; /*Move index for [W] */
+int eMove = 0; /*Move index for [E] */
+int rMove = 0; /*Move index for [R] */
+int tMove = 0; /*Move index for [T] */
 
 /**
-Assigns a move index to a key(from q,w,e,r,t)
+Assigns a move index to a key(from [Q], [W], [E], [R] or [T])
 */
 void assignMove(char keyAssign, int moveIndex) 
 {
 	if (keyAssign == 'q')
 	{
 		qMove = moveIndex;
+		text("Changes applied!", 10);
+	}
+	else if (keyAssign == 'w')
+	{
+		wMove = moveIndex;
+		text("Changes applied!", 10);
+	}
+	else if (keyAssign == 'e')
+	{
+		eMove = moveIndex;
+		text("Changes applied!", 10);
+	}
+	else if (keyAssign == 'r')
+	{
+		rMove = moveIndex;
+		text("Changes applied!", 10);
+	}
+	else if (keyAssign == 't')
+	{
+		tMove = moveIndex;
+		text("Changes applied!", 10);
+	}
+	else
+	{
+		text("[ERROR] EXPECTED 'q', 'w', 'e', 'r' or 't'", 10);
 	}
 }
 
@@ -155,6 +184,7 @@ void parseCombat(std::string sInput)
 	std::string cmdreroll = "reroll";
 
 	char keyChange;
+	string overflowPrevent;
 	int newMoveIndex;
 
 	//AVOIDS ASSIGNING MOTHING TO MOVES
@@ -189,7 +219,7 @@ void parseCombat(std::string sInput)
 	else if (sInput == cmdmove1) // MOVE Q
 	{
 		getMoveIndex(qMove);
-		getWinCondition();
+		if (getWinCondition()) return;
 	}
 	else if (sInput == cmdmove2) // MOVE W
 	{
@@ -214,11 +244,12 @@ void parseCombat(std::string sInput)
 	else if (sInput == cmdassign)
 	{
 		text("Enter a key from q ,w, e, r or t: ", 10);
-		std::cin >> keyChange;
+		std::getline(std::cin , overflowPrevent);
+		keyChange = overflowPrevent[0];
 		text("Enter move index id: ", 10);
-		std::cin >> newMoveIndex;
+		std::getline(std::cin, overflowPrevent);
+		newMoveIndex = ((int)overflowPrevent[0] - 48);
 		assignMove(keyChange, newMoveIndex);
-		text("Changes applied!", 10);
 		newLine();
 	}
 	else if (sInput == cmdstat)

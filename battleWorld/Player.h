@@ -16,9 +16,11 @@ void Player::checklvl()
 	if (player.getXp() >= 2 * nextlvl)
 	{
 		player.setLv(player.getLv() + 1);
-		text("Leveled Up!", 10);
+		text("Leveled Up! ", 10);
 		Sleep(400);
-		text("Your character is now Level" , 10);
+		text("Your character is now Level " , 10);
 		text(std::to_string(player.getLv()) , 10);
+		newLine();
+		Sleep(500);
 	}
 }
