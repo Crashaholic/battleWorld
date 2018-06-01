@@ -1,5 +1,6 @@
 #pragma once
-
+#ifndef MAIN
+#define MAIN
 #include <iostream>
 #include <string>
 #include <windows.h>
@@ -10,3 +11,4 @@
 #include "Entity.h"
 #include "Player.h"
 #include "Generic.h"
+#endif

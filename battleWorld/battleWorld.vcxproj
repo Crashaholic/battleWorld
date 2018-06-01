@@ -115,7 +115,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Combat.cpp" />
+    <ClCompile Include="debug.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MovesDB.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Combat.h" />
@@ -124,6 +127,7 @@
     <ClInclude Include="EnemyDB.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="Generic.h" />
+    <ClInclude Include="main.h" />
     <ClInclude Include="MovesDB.h" />
     <ClInclude Include="Player.h" />
   </ItemGroup>

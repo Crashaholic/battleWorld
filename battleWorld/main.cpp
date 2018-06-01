@@ -30,7 +30,7 @@ int main()
 	GetEnemyIndex(6); //1: crab 2: spider
 	Sleep(2000);
 	clear();
-	debug.randStats(100);
+	DEBUGrandStats(100);
 	while (true) 
 	{
 		if (player.getLv() == 0) player.setLv(1);
