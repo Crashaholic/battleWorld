@@ -16,7 +16,7 @@ int main()
 	string sInput;
 
 	clear();
-
+	std::cout << "VER INDEV 1.0" << endl << "EXPECT BUGS" << "\n\n\n\n\n\n\n";
 	text("Recall your name...", TEXT_SPEED); newLine();
 	cout << ">";
 	getline(std::cin, sName);
@@ -28,10 +28,9 @@ int main()
 	text( "An unfortunate event happened on you, " , TEXT_SPEED);
 	text(sName, TEXT_SPEED); newLine();
 	GetEnemyIndex(6); //1: crab 2: spider
-	Sleep(2000);
-	clear();
 	debug.randStats(100);
-	while (true) 
+	int winCount = 0;
+	for (; winCount < 3;)
 	{
 		if (player.getLv() == 0) player.setLv(1);
 		if (combatEnded == false)
@@ -52,6 +51,8 @@ int main()
 			text(sName , TEXT_SPEED - 10);
 			text(" | ", TEXT_SPEED - 10);
 			text(std::to_string(player.getHp()), TEXT_SPEED - 10);
+			text("/", TEXT_SPEED - 10);
+			text(std::to_string(player.getMaxHp()), TEXT_SPEED - 10);
 			text(" HP | ", TEXT_SPEED - 10);
 			text(std::to_string(player.getMa()), TEXT_SPEED - 10);
 			text("/", TEXT_SPEED - 10);
@@ -69,15 +70,24 @@ int main()
 		{
 			if (winCondition)
 			{
+				if (winCount < 2)
+				{
+					winCount++;
+					combatEnded = false;
+					winCondition = false;
+					GetEnemyIndex(1);
+					continue;
+				}
 				text("And so... The chosen one has indeed been able to overcome his challenges and fight his inner demons.", TEXT_SPEED);
 				Sleep(5000);
+				break;
 			}
 			else
 			{
 				text("And so... The chosen one has subcumbed to the inner demons and no longer walk amongst men, only monsters.", TEXT_SPEED);
 				Sleep(5000);
+				break;
 			}
-			break;
 		}
 	}
 	return 0;

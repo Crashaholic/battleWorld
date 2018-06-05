@@ -13,25 +13,12 @@ public:
 
 void Debug::randStats(int range)
 {
-	srand(time(NULL));
-	player.setXp(0);
-	player.setAc(0);
-	player.setAr(4);
-	player.setAt(0);
-	player.setDe(0);
-	player.setHp(0);
-	player.setIn(0);
-	player.forceSetMa(0);
-	player.setMaxMa(0);
-	player.setSp(0);
-	player.setSt(0);
-	player.setLk(0);
-
 	//Distribute 24 stat points across STR, DEX, INT, LUK
 	reroll();
 
 	//Determine derived stats
 	player.setHp(20 + 2 * player.getSt());
+	player.setMaxHp(20 + 2 * player.getSt());
 	player.setAt(player.getSt() + 1);
 	player.setSp(player.getDe() + 1);
 	player.setMaxMa(player.getIn() + 1);

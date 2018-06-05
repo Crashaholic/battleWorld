@@ -10,6 +10,7 @@ class Entity
 
 	int strength;
 	int health;
+	int maxHealth;
 	int attack;
 
 	int intelligence;
@@ -29,6 +30,7 @@ public:
 
 	int getSt();
 	int getHp();
+	int getMaxHp();
 	int getAr();
 	int getAt();
 
@@ -48,6 +50,7 @@ public:
 
 	void setSt(int newSt);
 	void setHp(int newHP);
+	void setMaxHp(int newMaxHp);
 	void setAt(int newAt);
 
 	void setIn(int newIn);
@@ -94,6 +97,11 @@ int Entity::getSt()
 int Entity::getHp()
 {
 	return health;
+}
+
+int Entity::getMaxHp()
+{
+	return maxHealth;
 }
 
 int Entity::getAt()
@@ -172,6 +180,11 @@ void Entity::setSt(int newSt)
 void Entity::setHp(int newHp)
 {
 	health = newHp;
+}
+
+void Entity::setMaxHp(int newMaxHp)
+{
+	maxHealth = newMaxHp;
 }
 
 void Entity::setAt(int newAt)

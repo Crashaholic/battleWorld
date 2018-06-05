@@ -23,6 +23,7 @@ void stats()
 		<< "Intelligence: " << player.getIn() << std::endl
 		<< std::endl
 		<< "Health:       " << player.getHp() << std::endl
+		<< "Max Health    " << player.getMaxHp() << std::endl
 		<< "Magic:        " << player.getMa() << std::endl
 		<< "Max Magic:    " << player.getMaxMa() << std::endl
 		<< std::endl

@@ -64,28 +64,52 @@ void getMoveIndex(int index)
 {
 	int damageTemp;// = damage(player.getAt(), enemy.getAr());
 	
+	/* ___________________________
+	* | index | Name              |
+	* | 1     | Normal Attack     |
+	* | 2     | Strong Attack     |
+	* | 3     | Heal              |
+	* |
+	*/
+
 	switch (index)
 	{
-	case 1:
+	case 1: //NORMAL ATTACK
 		damageTemp = damage(player.getAt(), enemy.getAr());
 		std::cout << "Enemy took " << damageTemp << " damage!" << std::endl;
 		enemy.setHp(enemy.getHp() - damageTemp);
 		break;
-	case 2:
-		if (mpChecker(5)) {
-			player.setMa(player.getMa() - 5);
+	case 2: // STRONG
+		if (mpChecker(1)) 
+		{
+			player.setMa(player.getMa() - 1);
 			damageTemp = damage(player.getAt() * 10, enemy.getAr());
 			enemy.setHp(enemy.getHp() - damageTemp);
 			std::cout << "Enemy took " << damageTemp << " damage!" << std::endl;
 			cout << "wow nice buff" << endl;
 		}
-		else {
+		else 
+		{
 			std::cout << "Not enough magic." << std::endl;
 		}
 		break;
-
+	case 3: // HEAL
+		if (mpChecker(1))
+		{
+			player.setMa(player.getMa() - 1);
+			int healAmt = damage(player.getHp(), player.getIn());
+			player.setHp(player.getHp() + healAmt);
+			text("Player healed for ",10);
+			text(std::to_string(healAmt) ,10);
+			text(" amount.", 10); newLine();
+		}
+		else
+		{
+			std::cout << "Not enough magic." << std::endl;
+		}
+		break;
 	default:
-		cout << "If you're seeing this how the hell did you get an invalid move.";
+		cout << "If you're seeing this how the hell did you get an invalid move." << endl;
 		break;
 	}
 }
