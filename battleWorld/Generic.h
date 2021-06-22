@@ -3,43 +3,34 @@
 #include <string>
 #include <windows.h>
 
+#define DEFAULT_TEXT_SPEED 10
+
 using std::string;
-using std::cout;
-using std::endl;
 
-/**
-Outputs one char by one from the TEXT based on speed.
-*/
-void text(string TEXT, int speed)
+namespace con
 {
-	for (unsigned int i = 0; i < TEXT.length(); i++)
+	/**
+	Outputs one char by one from the TEXT based on speed.
+	*/
+	void text(string TEXT, int speed = DEFAULT_TEXT_SPEED)
 	{
-		cout << TEXT[i];
-		Sleep(speed);
+		for (unsigned int i = 0; i < TEXT.length(); i++)
+		{
+			std::cout << TEXT[i];
+			Sleep(speed);
+		}
 	}
-}
 
-/**
-Creates a new line.
-*/
-void newLine()
-{
-	cout << endl;
-}
+	void text(int value, int speed = DEFAULT_TEXT_SPEED)
+	{
+		text(std::to_string(value), speed);
+	}
 
-//TODO
-/**
-Puts the stats to the top #TODO
-*/
-void toTop()
-{
-
-}
-
-/**
-Clears the screen.
-*/
-void clear()
-{
-	cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+	/**
+	Clears the screen.
+	*/
+	void clear()
+	{
+		std::cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+	}
 }

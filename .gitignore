@@ -1,0 +1,15 @@
+
+*.ilk
+.vs/battleWorld/v15/.suo
+.vs/battleWorld/v15/.suo
+.vs/battleWorld/v15/ipch/AutoPCH/42515928132f016f/MAIN.ipch
+*.ipch
+*.log
+*.tlog
+*.idb
+*.ilk
+*.ilk
+*.exe
+/.vs/battleWorld/v15
+/int/Debug_Win32x86
+/bin/Debug_Win32x86

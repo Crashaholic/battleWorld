@@ -1,6 +1,4 @@
-﻿#include "main.h"
-
-#define TEXT_SPEED 20
+﻿#include "Game.h"
 
 using std::string;
 using std::cout;
@@ -10,61 +8,48 @@ using std::cin;
 /**
 Main.cpp.
 */
+
+using namespace bwld;
+
+using std::to_string;
+
 int main()
 {
 	string sName;
 	string sInput;
 
-	clear();
+	Player player = Player();
+	Enemy enemy = Enemy();
+
+	con::clear();
 	std::cout << "VER INDEV 1.0" << endl << "EXPECT BUGS" << "\n\n\n\n\n\n\n";
-	text("Recall your name...", TEXT_SPEED); newLine();
+	Sleep(1000);
+	con::text("Recall your name...\n");
 	cout << ">";
 	getline(std::cin, sName);
 
 	if (sName == "") 
 	{
-		text("I can't hear your thoughts, try again.", TEXT_SPEED); newLine();
+		con::text("I can't hear your thoughts, try again.\n");
 	}
-	text( "An unfortunate event happened on you, " , TEXT_SPEED);
-	text(sName, TEXT_SPEED); newLine();
-	GetEnemyIndex(6); //1: crab 2: spider
-	debug.randStats(100);
+	con::text( "An unfortunate event happened on you, ");
+	con::text(sName + '\n');
+	GetEnemyIndex(enemy, 6); //1: crab 2: spider
+	debug.RandStats(player, 100);
 	int winCount = 0;
 	for (; winCount < 3;)
 	{
-		if (player.getLv() == 0) player.setLv(1);
+		if (player.level == 0)
+			player.level = 1;
 		if (combatEnded == false)
 		{
-			//cout << "Enemy  | " << enemy.getHp() << "HP | " << enemy.getMa() << "MA | "  << enemy.getAt() << "AT | " << endl;
-			text("Enemy  | " , TEXT_SPEED - 10);
-			text(std::to_string(enemy.getHp()), TEXT_SPEED - 10);
-			text(" HP | ", TEXT_SPEED - 10);
-			text(std::to_string(enemy.getMa()), TEXT_SPEED - 10);
-			text("/", TEXT_SPEED - 10);
-			text(std::to_string(enemy.getMaxMa()), TEXT_SPEED - 10);
-			text(" MA | ", TEXT_SPEED - 10);
-			text(std::to_string(enemy.getAt()), TEXT_SPEED - 10);
-			text(" AT | ", TEXT_SPEED - 10);
-			newLine();
+			con::text(enemy.GetShownStats());
+			con::text(player.GetShownStats());
 
-			//cout << "Player | " << player.getHp() << "HP | "  << player.getMa() << "MA | " << player.getAt()<< "AT | " << endl;
-			text(sName , TEXT_SPEED - 10);
-			text(" | ", TEXT_SPEED - 10);
-			text(std::to_string(player.getHp()), TEXT_SPEED - 10);
-			text("/", TEXT_SPEED - 10);
-			text(std::to_string(player.getMaxHp()), TEXT_SPEED - 10);
-			text(" HP | ", TEXT_SPEED - 10);
-			text(std::to_string(player.getMa()), TEXT_SPEED - 10);
-			text("/", TEXT_SPEED - 10);
-			text(std::to_string(player.getMaxMa()), TEXT_SPEED - 10);
-			text(" MA | ", TEXT_SPEED - 10);
-			text(std::to_string(player.getAt()), TEXT_SPEED - 10);
-			text(" AT | ", TEXT_SPEED - 10);
-			newLine();
 			cout << ">";
 
 			getline(cin , sInput);
-			parseCombat(sInput);
+			parseCombat(player, enemy, sInput);
 		}
 		else
 		{
@@ -75,19 +60,18 @@ int main()
 					winCount++;
 					combatEnded = false;
 					winCondition = false;
-					GetEnemyIndex(1);
+					GetEnemyIndex(enemy, 1);
 					continue;
 				}
-				text("And so... The chosen one has indeed been able to overcome his challenges and fight his inner demons.", TEXT_SPEED);
+				con::text("And so... The chosen one has indeed been able to overcome his challenges and fight his inner demons.", DEFAULT_TEXT_SPEED);
 				Sleep(5000);
-				break;
 			}
 			else
 			{
-				text("And so... The chosen one has subcumbed to the inner demons and no longer walk amongst men, only monsters.", TEXT_SPEED);
+				con::text("And so... The chosen one has subcumbed to the inner demons and no longer walk amongst men, only monsters.", DEFAULT_TEXT_SPEED);
 				Sleep(5000);
-				break;
 			}
+			break;
 		}
 	}
 	return 0;

@@ -3,24 +3,26 @@
 #include "Generic.h"
 #include "string"
 
-class Player : public Entity
+namespace bwld
 {
-public:
-	void checklvl();
-} player;
-
-void Player::checklvl()
-{
-	int nextlvl = player.getLv() + 1;
-	/*if (player.getXp() == exp(1.2 * nextlvl))*/
-	if (player.getXp() >= 2 * nextlvl)
+	struct Player : public Entity
 	{
-		player.setLv(player.getLv() + 1);
-		text("Leveled Up! ", 10);
-		Sleep(400);
-		text("Your character is now Level " , 10);
-		text(std::to_string(player.getLv()) , 10);
-		newLine();
-		Sleep(500);
-	}
+	public:
+		void Checklvl()
+		{
+			int nextlvl = level + 1;
+			/*if (player.getXp() == exp(1.2 * nextlvl))*/
+			if (xp >= 2 * nextlvl)
+			{
+				level++;
+				con::text("Leveled Up! ", 10);
+				Sleep(400);
+				con::text("\n\n\t\t!!!Your character is now Level ");
+				con::text(level);
+				con::text("!!!\n\n");
+				Sleep(400);
+			}
+		}
+			
+	};
 }

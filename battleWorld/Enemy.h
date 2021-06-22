@@ -1,7 +1,10 @@
 #pragma once
 #include "Entity.h"
 
-class Enemy : public Entity
+namespace bwld
 {
+	struct Enemy : public Entity
+	{
 
-} enemy;
+	};
+}

@@ -11,76 +11,80 @@
 	6:puffball
 */
 
-
-void GetEnemyIndex(int enemyQueue)
+namespace bwld
 {
-	switch (enemyQueue)
+	void GetEnemyIndex(Enemy& enemy, int enemyQueue)
 	{
-	case 1: //crab (index 1)
-		enemy.setLv(1);
+		enemy.name = "_";
+		switch (enemyQueue)
+		{
+		case 1: //crab (index 1)
+			enemy.level = 1;
 
-		enemy.setHp(100);
-		enemy.setAr(1);
-		enemy.setAt(10);
-		enemy.setSt(1);
+			enemy.health = 100;
+			enemy.armour = 1;
+			enemy.attack = 10;
+			enemy.strength = 1;
 
-		enemy.setIn(0);
-		enemy.setMa(0);
+			enemy.intelligence = 0;
+			enemy.magic = 0;
 
-		enemy.setDe(1);
-		enemy.setAc(1);
-		enemy.setSp(1);
-		std::cout << "Crab appears!" << std::endl;
-		break;
-	case 2:
-		enemy.setLv(1);
+			enemy.dexterity = 1;
+			enemy.accuracy = 1;
+			enemy.speed = 1;
+			enemy.name = "Crab";
+			std::cout << "Crab appears!" << std::endl;
+			break;
+		case 2:
+			enemy.level = 1;
 
-		enemy.setHp(200);
-		enemy.setAr(20);
-		enemy.setAt(20);
-		enemy.setSt(1);
+			enemy.health = 200;
+			enemy.armour = 20;
+			enemy.attack = 20;
+			enemy.strength = 1;
 
-		enemy.setIn(0);
-		enemy.setMa(0);
+			enemy.intelligence = 0;
+			enemy.magic = 0;
 
-		enemy.setDe(1);
-		enemy.setAc(1);
-		enemy.setSp(1);
-		std::cout << "Spider appears!" << std::endl;
-		break;
-	case 3:
-		enemy.setLv(1);
+			enemy.dexterity = 1;
+			enemy.accuracy = 1;
+			enemy.speed = 1;
+			std::cout << "Spider appears!" << std::endl;
+			break;
+		case 3:
+			enemy.level = 1;
 
-		enemy.setHp(300);
-		enemy.setAr(30);
-		enemy.setAt(30);
-		enemy.setSt(1);
+			enemy.health = 300;
+			enemy.armour = 30;
+			enemy.attack = 30;
+			enemy.strength = 1;
 
-		enemy.setIn(0);
-		enemy.setMa(0);
+			enemy.intelligence = 0;
+			enemy.magic = 0;
 
-		enemy.setDe(1);
-		enemy.setAc(1);
-		enemy.setSp(1);
-		std::cout << "Zombie appears!" << std::endl;
-		break;
-	case 6: //puffball
-		enemy.setLv(1);
-		enemy.setXp(5);
+			enemy.dexterity = 1;
+			enemy.accuracy = 1;
+			enemy.speed = 1;
+			std::cout << "Zombie appears!" << std::endl;
+			break;
+		case 6: //puffball
+			enemy.level = 1;
+			enemy.xp = 5;
 
-		enemy.setHp(12);
-		enemy.setAr(0);
-		enemy.setAt(3);
-		enemy.setSt(1);
+			enemy.health = 12;
+			enemy.armour = 0;
+			enemy.attack = 3;
+			enemy.strength = 1;
 
-		enemy.setDe(0);
-		enemy.setSp(1);
-		
-		enemy.setLk(0);
-		enemy.setAc(5);
-		std::cout << "Puffball appears!" << std::endl;
-	default:
-		break;
+			enemy.dexterity = 0;
+			enemy.speed = 1;
+
+			enemy.luck = 0;
+			enemy.accuracy = 5;
+			std::cout << "Puffball appears!" << std::endl;
+		default:
+			break;
+		}
 	}
 }
 
