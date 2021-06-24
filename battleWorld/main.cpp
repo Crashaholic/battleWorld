@@ -13,7 +13,13 @@ using namespace bwld;
 
 using std::to_string;
 
-int main()
+#define SDL_MAIN_HANDLED
+#include <SDL.h>
+
+const int SCREEN_WDTH = 800;
+const int SCREEN_HGHT = 600;
+
+int main(int argc, char* args[])
 {
 	string sName;
 	string sInput;
@@ -21,9 +27,31 @@ int main()
 	Player player = Player();
 	Enemy enemy = Enemy();
 
+	SDL_Window* window = NULL;
+	SDL_Surface* surface = NULL;
+
+	if (SDL_Init(SDL_INIT_VIDEO) < 0)
+	{
+		std::cout << "Display not inited!\n";
+		return 1;
+	}
+
 	con::clear();
 	std::cout << "VER INDEV 1.0" << endl << "EXPECT BUGS" << "\n\n\n\n\n\n\n";
 	Sleep(1000);
+
+	window = SDL_CreateWindow("battleWorld", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WDTH, SCREEN_HGHT, SDL_WINDOW_SHOWN);
+
+	if (window == NULL)
+	{
+		std::cout << "Window could not be created!\n";
+		return 2;
+	}
+
+	surface = SDL_GetWindowSurface(window);
+	SDL_FillRect(surface, NULL, SDL_MapRGB(surface->format, 0x00, 0x00, 0x00));
+	SDL_UpdateWindowSurface(window);
+
 	con::text("Recall your name...\n");
 	cout << ">";
 	getline(std::cin, sName);

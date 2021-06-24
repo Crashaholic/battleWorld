@@ -3,6 +3,8 @@
 #include <windows.h>
 #include "Combat.h"
 #include "Debug.h"
+#include <fstream>
+#include "LoreHandler.h"
 
 namespace bwld
 {
@@ -20,6 +22,12 @@ namespace bwld
 		}
 
 		~Game() = default;
+		LoreHandler loreHandler;
+
+		static void Init()
+		{
+			
+		}
 
 	private:
 		Game();
